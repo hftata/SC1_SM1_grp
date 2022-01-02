@@ -19,10 +19,10 @@
 
 library(tidyverse)
 
-data <- read_csv('./atlas-higgs-challenge-2014-v2.csv')
+data <- read_csv('./data/atlas-higgs-challenge-2014-v2.zip')
 
 training <- filter(data, KaggleSet == 't')
-write_csv(training, './training.csv')
+save(training, file = './data/training.RData')
 
 test <- filter(data, (KaggleSet == 'b') | (KaggleSet == 'v'))
-write_csv(test, './test.csv')
+save(test, file = './data/test.RData')
