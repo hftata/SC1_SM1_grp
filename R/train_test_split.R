@@ -22,7 +22,9 @@ library(tidyverse)
 data <- read_csv('./data/atlas-higgs-challenge-2014-v2.zip')
 
 training <- filter(data, KaggleSet == 't')
+training <- select(training, -c('KaggleSet', 'KaggleWeight'))
 save(training, file = './data/training.RData')
 
 test <- filter(data, (KaggleSet == 'b') | (KaggleSet == 'v'))
+test <- select(test, -c('KaggleSet', 'KaggleWeight'))
 save(test, file = './data/test.RData')
